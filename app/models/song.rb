@@ -5,7 +5,6 @@ class Song < ActiveRecord::Base
   validates :artist_name, presence: true
   validates :genre, presence: true
   validates :released, inclusion: {in: [true, false] }
-    validates :release_year,  presence: false, inclusion: {in: [0..99]}
   validates_presence_of :release_year, if: Proc.new{|obj| obj[:released] == true}
 
 end
